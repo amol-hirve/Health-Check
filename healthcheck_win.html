@@ -1,0 +1,468 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Check Summary</title>
+  <style>
+      #container {
+          font-family: Arial,sans-serif;
+          color: #222222;
+          width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+          font-size: small;
+          /* border: 1px solid #888888;
+          border-radius: 5px; */
+        }
+
+     .table-section {
+         background: #fff;
+         padding: 20px;
+         margin-bottom: 30px;
+         border-radius: 12px;
+         box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+     }
+     table {      
+         border-collapse: collapse;     
+         width: 100%; 
+         font-size: small;		   	
+     }
+     th {
+         background-color:#dcdcdc;
+     }
+     table, tr, th, td {
+         border: 1px solid #ddd;            
+         text-align: left;
+         padding: 10px;
+         margin: 5px;
+         word-wrap: break-word;
+     }
+     th {
+         background-color: #f2f2f2;
+     }
+    .pass-color {
+         color: green;
+         font-weight: bold;
+     }
+    .fail-color {
+         color: red;
+         font-weight: bold;
+     }
+    .warn-color {
+	     color: orange;
+		 font-weight: bold;
+	 }
+     td:nth-child(1) {
+         width: 15%;
+     }
+     td:nth-child(2) {
+         width: 10%;
+     }
+     td:nth-child(3) {
+         width: 35%;
+     }
+     td:nth-child(4) {
+         width: 40%;
+     }
+    .device-info {
+         display: flex;
+         flex-direction: column;
+         width: 160px;
+         border: 1px solid #ccc;
+         padding: 5px;
+         border-radius: 10px;
+         background-color: white;
+         float: left;
+     }
+     .info-row {
+         margin-bottom: 0px;
+         background-color: white;
+         padding: 5px;                                
+     }
+     .label {
+         font-weight: normal;
+      }
+     .label2 {
+         font-weight: bold;
+     }
+
+     #container2 {
+      width: 99%;    	   
+      margin: auto;
+      padding: 10px;	
+      display: flex;
+      flex-direction: row;
+      background-color: #f9f9f9;
+      border-radius: 10px;    	
+     }
+        
+     .btn {
+      text-decoration: none;
+      padding: 2px;
+      border: 1px solid #333333;
+      background-color: green;
+      color: white;
+     }
+
+     a.button {
+       padding: 1px 6px;
+       border: 1px outset buttonborder;
+       border-radius: 3px;
+       color: buttontext;
+       background-color: #00FF00;
+       text-decoration: none;
+       font-weight: bold;
+     }
+
+     .start-button {
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       font-size: 11px;
+       font-weight: 600;
+       color: white;
+       background-color: #007BFF;
+       border: none;
+       border-radius: 15px;
+       padding: 4px 8px;
+       cursor: pointer;
+       transition: background-color 0.3s ease, transform 0.2s ease;
+       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     }
+
+     .start-button:hover {
+       background-color: #0056b3;
+       transform: translateY(-2px);
+     }
+
+     .start-button:active {
+       background-color: black;
+       transform: translateY(0);
+     }  
+  </style>
+</head>
+<body>
+    <div id="container">
+        <h2 id="heading">PC Health Check v2.3.2</h2>
+        <h3>System Information</h3>
+        <div id="container2"> 
+            <div class="device-info">
+	            <div class="info-row"><span class="label">User Name</div> 
+		        <div class="info-row"><span class="label2">AHIRVE</div>  	                  
+        	</div>
+            <div class="device-info">
+	            <div class="info-row"><span class="label">System Name</div> 
+		        <div class="info-row"><span class="label2">AHIRVE-64073121H</div>  	                  
+        	</div>
+              <div class="device-info">
+	            <div class="info-row"><span class="label">System Model</div> 
+		        <div class="info-row"><span class="label2">PORTEGE X40-K</div>  	                  
+        	</div>
+            <div class="device-info">
+	            <div class="info-row"><span class="label">Serial Number</div> 
+		        <div class="info-row"><span class="label2">64073121H</div>  	                  
+        	</div>                                 
+            <div class="device-info">
+	            <div class="info-row"><span class="label">Installed RAM</div> 
+		        <div class="info-row"><span class="label2">32 GB</div>  	                  
+        	</div>
+            <div class="device-info">
+	            <div class="info-row"><span class="label">OS Version</div> 
+		        <div class="info-row"><span class="label2">25H2</div>  	                  
+        	</div>   
+            <div class="device-info">
+	            <div class="info-row"><span class="label">Ticket Number</div> 
+		        <div class="info-row"><span class="label2">Not Available</div>  	                  
+        	</div>         
+        </div>        
+        <h3>I. Hardware</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Status</th>
+                    <th>Finding</th>
+                    <th>Action Required</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Disk Health</td>
+                    <td class=pass-color>PASS</td>
+                    <td>No issues found</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>Device Drivers</td>
+                    <td class=pass-color>PASS</td>
+                    <td>No issues found</td>
+                    <td>None</td>
+                </tr>    
+                <tr>
+                    <td>Battery Health</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Battery condition: Good (78%)</td>
+                    <td>None</td>
+                </tr>
+           
+            </tbody>
+        </table><h3>II. Operating System</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Status</th>
+                    <th>Finding</th>
+                    <th>Action Required</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Disk Space</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Available space > 40 GB</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>System Up Time</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Last system reboot was < 7 days ago</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>OS Version</td>
+                    <td class=pass-color>PASS</td>
+                    <td>OS Version: Windows 11 Pro 25H2<br>Build Number: 26200</td>
+                    <td>None</td>
+                </tr>
+                <script>
+                     // Open Windows Check for updates
+                     function openWindowsUpdates() {
+                         window.location.href = "ms-settings:windowsupdate";
+                     }
+                </script>
+
+                <script>
+                    // Install Optional Updates
+                    function openWindowsOPUpdates() {
+                         window.location.href = "ms-settings:windowsupdate-optionalupdates";
+                     }
+                </script>
+                <tr>
+                    <td>OS Updates</td>
+                    <td class=fail-color>FAIL</td>
+                    <td>Optional updates are available to install</td>
+                    <td>Click here to <button class="start-button" onclick="openWindowsOPUpdates()">Install Optional Updates</button><br>When prompted, allow access to open <b>Settings</b></td>
+                </tr>
+                
+                <tr>
+                    <td>System Files Integrity</td>
+                    <td class="pass-color">PASS (fixed)</td>
+                    <td>Issue identified and resolved (see logs for details)</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>OS Activation Status</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Windows is activated</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>CPU Utilization</td>
+                    <td class=pass-color>PASS</td>
+                    <td>CPU utilization 7% (< 80% threshold)</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>Memory Utilization</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Memory utilization 50% (< 80% threshold)</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>Wi-Fi Certs Expiry</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Wi-Fi certificate expiry > 7 days
+(expiry date: 13-Feb-2027)</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>OS Password Expiry</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Password expiry date > 7 days
+(expiring in 83 days)</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>Biometrics</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Biometrics already enrolled</td>
+                    <td>None</td>
+                </tr>                
+                <script>
+                     // Open Windows Hello Sign-in Options
+                     function openSigninOptions() {
+                         window.location.href = "ms-settings:signinoptions";
+                     }
+                </script>
+                <tr>
+                    <td>Internet Speed Test</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Download Speed: 281 Mbps (> 10 Mbps threshold)</td>
+                    <td>If you are interested in testing it again, click the "Speed Test" button to re-test &nbsp; &nbsp;<button type="button" class="start-button" onclick="window.open('https://www.speedtest.net', '_blank')">Speed Test</button></td>
+                </tr>
+            </tbody>
+        </table><h3>III. Applications</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Status</th>
+                    <th>Finding</th>
+                    <th>Action Required</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Antivirus</td>
+                    <td class=pass-color>PASS</td>
+                    <td>CrowdStrike is installed and active</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>BitLocker Encryption</td>
+                    <td class=pass-color>PASS</td>
+                    <td>BitLocker is active on the device</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>Native Firewall</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Firewall installed and enabled</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>Device Management (EMP)</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Device is enrolled in EMP</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>OMA</td>
+                    <td class=pass-color>PASS</td>
+                    <td>OMA app is configured</td>
+                    <td>None</td>
+                </tr>   
+                <tr>
+                    <td>Slack</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Slack (Version: 4.46.101) is installed and running</td>
+                    <td>None</td>
+                </tr>   
+                
+                <script>
+                //Java script for attempt to open the Slack app
+                function openSlack() {
+                     window.location.href = "slack://open";                     
+                }
+                </script>
+
+                <tr>
+                    <td>Zoom Workplace</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Zoom Workplace (Version: 6.7.32670) is installed and running</td>
+                    <td>None</td>
+                </tr>                
+                <!-- 
+                <tr>
+                    <td>Microsoft Outlook</td>
+                    <td class=></td>
+                    <td></td>
+                    <td></td>
+                </tr>   
+                --> 
+                
+                <script>
+                //Java script for attempt to open the Zoom app
+                function openZoom() {
+                     window.location.href = "zoommtg://zoom.us/start//open";                     
+                }
+                </script>
+                
+            </tbody>
+        </table><h3>IV. OUL Status / Readiness</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Status</th>
+                    <th>Finding</th>
+                    <th>Action Required</th>
+                </tr>
+            </thead>
+            <tbody>                
+                <tr>
+                    <td>TPM Version</td>
+                    <td class=pass-color>PASS</td>
+                    <td>TPM Version: 2.0</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>Secure Boot</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Secure Boot is enabled</td>
+                    <td>None</td>
+                </tr>  
+                <tr>
+                    <td>BIOS Mode</td>
+                    <td class=pass-color>PASS</td>
+                    <td>UEFI</td>
+                    <td>None</td>
+                </tr>                     
+                <tr>
+                    <td>EMP Agent Version</td>
+                    <td class=pass-color>PASS</td>
+                    <td>EMP Agent Version:1.3.3.1001</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>Device Attestation</td>
+                    <td class=warn-color>NA</td>
+                    <td>Device Attestation status can only be verified through the EMP Self Service Portal</td>
+                    <td>To verify device attestation, please refer <a href="https://myhelp.oracle.com/app/answers/answer_view/a_id/1020739/loc/en_US/" target="blank">KM Article</a></td>
+                </tr> 
+                <tr>
+                    <td>Oracle Unified Login</td>
+                    <td class=pass-color>PASS</td>
+                    <td>OUL app is installed</td>
+                    <td>None</td>
+                </tr>                                                     
+                <tr>
+                    <td>Google Chrome</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Google Chrome version: 146.0.7680.154 (> threshold 88.0.0)</td>
+                    <td>None</td>
+                </tr>   
+                <tr>
+                    <td>Mozilla Firefox</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Mozilla Firefox version: 140.9.0 (>= threshold 109.0.0)</td>
+                    <td>None</td>
+                </tr>     
+                <tr>
+                    <td>Microsoft Edge</td>
+                    <td class=pass-color>PASS</td>
+                    <td>Microsoft Edge version: 146.0.3856.78 (>= threshold 88.0.0)</td>
+                    <td>None</td>
+                </tr>             
+            </tbody>
+        </table>       
+
+                <h4></h4>
+                <tr>
+                    <td><a href="file:///C:\ProgramData\Oracle\EES_Scripts\Logs\healthcheck_log.html" style="text-decoration:none" target="blank" class="start-button">View Logs</a></td>                    
+                </tr>                
+        </div>        
+</body>
+</html>
+
