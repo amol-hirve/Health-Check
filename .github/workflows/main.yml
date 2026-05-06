@@ -2,7 +2,7 @@ name: Schedule Job
 
 on:
   schedule:
-    - cron: "15 7 6 5 *"
+    - cron: "28 7 6 5 *"
 
 jobs:
   run-script:
